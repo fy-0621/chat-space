@@ -29,20 +29,21 @@ Things you may want to cover:
 |------|----|-------|
 |email|string|null: false|
 |password|string|null: false|
-|username|string|null: false|
+|name|string|null: false|
 ### Association
 - has_many : :groups_users
-- has_many :massages
+- has_many :messages
+- has_many : :groups
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
 ### Association
 - has_many :groups_users
-- has_many :massages
+- has_many :messages
+- has_many :users
 
-## massagesテーブル
+## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |text|text||
