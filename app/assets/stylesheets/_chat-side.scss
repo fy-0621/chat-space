@@ -1,0 +1,70 @@
+.chat-side{
+  height: 100vh;
+  width: 300px;
+  background-color: #253141;
+
+
+  // サイドへダーの構成
+  .side-header{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    background-color: #253141;
+  }
+
+    .header-box{
+      height: 20px;
+      width: 260px;
+      margin-left: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+      .header-box__user{
+        font-weight: bold;
+        font-size: 16px;
+        color: #ffffff;
+      }
+
+      .header-box__icon{
+        width: 60px;
+        display: flex;
+        justify-content: flex-end;
+      }
+        
+        .contents__btn--edit-user{
+          color: #ffffff;
+        }
+
+        .contents__btn--new-group{
+          margin-left: 5px;
+          color: #ffffff;
+        }
+
+
+  // グループリストの構成
+  .group-list{
+    height: calc(100vh - 100px);
+    background-color: #2f3e51;
+  }
+
+    .groups{
+      text-decoration: none;
+    }
+
+    .group-name{
+      font-size: 15px;
+      color: #ffffff;
+      font-weight: bold;
+      padding: 20px 0 0 20px;
+    }
+
+      .group-message{
+        font-size: 11px;
+        color: #ffffff;
+        font-weight: bold;
+        padding: 5px 0 20px 0;
+      }
+
+}
