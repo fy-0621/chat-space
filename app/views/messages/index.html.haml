@@ -1,0 +1,70 @@
+.wrapper
+  = render "side_bar"
+  = render "main_chat"
+  
+  .chat-side
+
+    .side-header
+      .side-header__box
+        .side-header__box__user
+          Yuki
+        .side-header__box__icon
+          = link_to "#", class: "contents__btn contents__btn--edit-user" do 
+            = icon('far fa-edit', 'fa-edit', class: "contents__btn--edit-user")
+          = link_to "#", class: "contents__btn contents__btn--new-group" do 
+            = icon('fas fa-cog', 'fa-edit', class: "contents__btn--new-group")
+
+
+    .group-list
+      = link_to "#", class: "group-link" do 
+        .group-list__user
+          techcamp
+          .group-list__message
+            まだメッセージがありません
+        .group-list__user
+          techexpert
+          .group-list__message
+            hello world
+
+
+
+
+
+  .chat-main
+
+    .group-info
+      .group-info__title
+        test
+        .member
+          Member:Yuki
+      .group-info__edit
+        = link_to "#", class: "contents__btn contents__btn--edit-group" do
+          Edit
+
+
+    .message-list
+      .message-info
+        .message-info__user
+          Yuki
+        .message-info__data
+          2020/3/1(sun) 13:51:00
+      .message
+        (๑╹ω╹๑ )
+      .message-info
+        .message-info__user
+          Yuki
+        .message-info__data
+          2020/3/1(sun) 13:51:00
+      .message
+        (ﾉД`)
+
+
+    .footer
+      .input-box
+        .input-box__message
+          %input{type: "text", class: "input-box__text", placeholder: "type a message"}
+        .input-box__image
+          %label{class: "input-box-image"}
+            = icon('fas', 'image')
+            %input{type: "file", class: "input-box__image__file"}
+        %input{type: "submit", name: "commit", value: "Send", class: "send-btn" }
