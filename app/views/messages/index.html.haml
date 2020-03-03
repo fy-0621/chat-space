@@ -3,26 +3,27 @@
   = render "main_chat"
   
   .chat-side
-  
+
     .side-header
-      .header-box
-        .header-box__user
+      .side-header__box
+        .side-header__box__user
           Yuki
-        .header-box__icon
+        .side-header__box__icon
           = link_to "#", class: "contents__btn contents__btn--edit-user" do 
             = icon('far fa-edit', 'fa-edit', class: "contents__btn--edit-user")
           = link_to "#", class: "contents__btn contents__btn--new-group" do 
             = icon('fas fa-cog', 'fa-edit', class: "contents__btn--new-group")
 
+
     .group-list
-      = link_to "#", class: "groups" do 
-        .group-name 
+      = link_to "#", class: "group-link" do 
+        .group-list__user
           techcamp
-          .group-message
+          .group-list__message
             まだメッセージがありません
-        .group-name
+        .group-list__user
           techexpert
-          .group-message
+          .group-list__message
             hello world
 
 
@@ -31,36 +32,39 @@
 
   .chat-main
 
-    .main-header
-      .group-title
+    .group-info
+      .group-info__title
         test
         .member
           Member:Yuki
-      .group-edit
-        = link_to "Edit","#", class: "contents__btn contents__btn--edit-group" 
+      .group-info__edit
+        = link_to "#", class: "contents__btn contents__btn--edit-group" do
+          Edit
+
 
     .message-list
       .message-info
-        .talker
+        .message-info__user
           Yuki
-        .data
+        .message-info__data
           2020/3/1(sun) 13:51:00
       .message
         (๑╹ω╹๑ )
       .message-info
-        .talker
+        .message-info__user
           Yuki
-        .data
+        .message-info__data
           2020/3/1(sun) 13:51:00
       .message
         (ﾉД`)
 
+
     .footer
       .input-box
-        .input-message
+        .input-box__message
           %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-        .image
-          %label{class: "input-box__image"}
+        .input-box__image
+          %label{class: "input-box-image"}
             = icon('fas', 'image')
             %input{type: "file", class: "input-box__image__file"}
-        %input{type: "submit", name: "commit", value: "Send", class: "submit-btn" }
+        %input{type: "submit", name: "commit", value: "Send", class: "send-btn" }
