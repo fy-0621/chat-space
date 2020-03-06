@@ -1,0 +1,23 @@
+.chat-side
+
+  .side-header
+    .side-header__box
+      .side-header__box__user
+        = current_user.name
+      .side-header__box__icon
+        = link_to "#", class: "contents__btn contents__btn--edit-user" do 
+          = icon('far fa-edit', 'fa-edit', class: "contents__btn--edit-user")
+        = link_to edit_user_path(current_user) do
+          = icon('fas', 'cog', class: "contents__btn--new-group")
+
+
+  .group-list
+    = link_to "#", class: "group-link" do 
+      .group-list__user
+        techcamp
+        .group-list__message
+          まだメッセージがありません
+      .group-list__user
+        techexpert
+        .group-list__message
+          hello world
