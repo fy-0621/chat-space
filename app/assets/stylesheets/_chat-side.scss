@@ -30,10 +30,10 @@
         display: flex;
         justify-content: flex-end;
 
-        .contents__btn--edit-user{
+        .contents__btn--new-group{
           color: #ffffff;
         }
-        .contents__btn--new-group{
+        .contents__btn--edit-user{
           margin-left: 5px;
           color: #ffffff;
         }
@@ -50,7 +50,7 @@
       text-decoration: none;
     }
 
-      &__user{
+      &__name{
         font-size: 15px;
         color: #ffffff;
         font-weight: bold;
