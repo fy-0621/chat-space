@@ -13,12 +13,10 @@
 
   .group-list
     - current_user.groups.each do |group|
-      = link_to "#", class: "group-link" do 
-        .group-list__name
-          techcamp
-          .group-list__message
-            まだメッセージがありません
-        .group-list__name
-          techexpert
-          .group-list__message
-            hello world
+      .group
+        = link_to group_messages_path(group), class: "group-link" do 
+          .group-list__name
+            = group.name
+            .group-list__message
+              = group.show_last_message
+

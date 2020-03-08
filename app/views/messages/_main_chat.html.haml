@@ -6,33 +6,32 @@
       .member
         Member:Yuki
     .group-info__edit
-      = link_to "#", class: "contents__btn contents__btn--edit-group" do
+      = link_to edit_group_path, class: "contents__btn contents__btn--edit-group" do
         Edit
 
-
+  .messages
+  = render @messages
   .message-list
     .message-info
       .message-info__user
-        Yuki
+        = message.user.name
       .message-info__data
-        2020/3/1(sun) 13:51:00
-    .message
-      (๑╹ω╹๑ )
-    .message-info
-      .message-info__user
-        Yuki
-      .message-info__data
-        2020/3/1(sun) 13:51:00
-    .message
-      (ﾉД`)
+        = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+    .lower-message
+          - if message.content.present?
+      %p.lower-message__content
+        = message.content
+    = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+
 
 
   .footer
     .input-box
-      .input-box__message
-        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-      .input-box__image
-        %label{class: "input-box-image"}
-          = icon('fas', 'image')
-          %input{type: "file", class: "input-box__image__file"}
-      %input{type: "submit", name: "commit", value: "Send", class: "send-btn" }
+      = form_for [@group, @message] do |f|
+        .input-box__message
+          %input{type: "text", class: "input-box__text", placeholder: "type a message"}
+        .input-box__image
+          %label{class: "input-box-image"}
+            = icon('fas', 'image')
+            %input{type: "file", class: "input-box__image__file"}
+        %input{type: "submit", name: "commit", value: "Send", class: "send-btn" }
