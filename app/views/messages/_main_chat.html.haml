@@ -2,27 +2,18 @@
 
   .group-info
     .group-info__title
-      test
+      = @group.name
       .member
-        Member:Yuki
+        Member:
+        - @group.users.each do |user|
+          = user.name
     .group-info__edit
-      = link_to "#", class: "contents__btn contents__btn--edit-group" do
+      = link_to edit_group_path(@group), class: "contents__btn contents__btn--edit-group" do
         Edit
 
 
   .messages
-  = render @messages
-  .message-list
-    .message-info
-      .message-info__user
-        = message.user.name
-      .message-info__data
-        = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
-    .lower-message
-      - if message.content.present?
-        %p.lower-message__content
-          = message.content
-      = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+    = render @messages
     
 
 
@@ -30,9 +21,9 @@
     .input-box
       .input-box__message
         = form_for [@group, @message] do |f|
-          %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-        .input-box__image
-          %label{class: "input-box-image"}
-            = icon('fas', 'image')
-            %input{type: "file", class: "input-box__image__file"}
-        %input{type: "submit", name: "commit", value: "Send", class: "send-btn" }
+          = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+          .input-box__image
+            = f.label :image, class: 'input-box-image' do
+              = icon('fas', 'image')
+            = f.file_field :image, class: 'input-box__image__file'
+          = f.submit 'Send', class: 'send-btn'

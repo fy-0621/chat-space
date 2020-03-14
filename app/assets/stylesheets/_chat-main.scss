@@ -2,7 +2,7 @@
   height: 100vh;
   width: calc(100% - 300px);
   background-color: #ffffff;
-
+}
 
   // メインヘダーの構成
   .group-info{
@@ -43,11 +43,10 @@
 
 
   // チャット部分の構成
-  .message-list{
+  .messages{
     height: calc(100vh - 100px - 90px);
     background-color: #fafafa;
     padding: 35px 0px 0px 40px;
-  
   
     .message-info{
       display: flex;
@@ -81,7 +80,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 40px;
-  
+    position: relative;
+  }
 
     .input-box{
       display: flex;
@@ -98,15 +98,13 @@
       }
 
       &__image{
-        position: relative;
-        top: 10px;
-        right: 30px;
+        position: absolute;
+        bottom: 33px;
+        right: 180px;
 
-        .input-box__image__file{
+
+        &__file{
           display: none;
-          position: relative;
-          top: 20px;
-          right: 20px;
         }
       }
 
@@ -120,5 +118,6 @@
         background-color: #38aef0;
       }
     }
-  }
+.new_message{
+  display: flex;
 }
